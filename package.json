@@ -76,5 +76,13 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-uglify": "^2.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sqooba/mobx-react-intl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sqooba/mobx-react-intl/issues"
+  },
+  "homepage": "https://github.com/Sqooba/mobx-react-intl#readme"
 }
