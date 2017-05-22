@@ -1,4 +1,6 @@
-/dist
-/es
-/lib 
-/node_modules
+dist
+es
+lib 
+node_modules
+
+lib
