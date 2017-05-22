@@ -1,6 +1,6 @@
 {
   "name": "mobx-react-intl",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Connectors between mobx-react and react-intl",
   "main": "./lib/index.js",
   "module": "es/index.js",
@@ -8,6 +8,12 @@
   "directories": {
     "example": "examples"
   },
+  "files": [
+    "dist",
+    "lib",
+    "src",
+    "es"
+  ],
   "scripts": {
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
