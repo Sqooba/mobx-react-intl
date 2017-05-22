@@ -5,7 +5,7 @@ const LOCALE = "locale";
 
 export class LocaleStore {
     _locale = observable("");  // the locale value
-    translations: {[key: string]: {[id: string]: string}} // fixMe: observable
+    translations: {[key: string]: {[id: string]: string}}
 
     constructor(defaultLocale: string, translations: {[key: string]: {[id: string]: string}}) {
         this.translations = translations

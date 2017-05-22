@@ -2,13 +2,24 @@
 
 ## I18n mobx store
 
-`./translations/LocaleStore.js` is a mobx store that contains the locale data and persists the 
+`src/LocaleStore.js` is a mobx store that contains the locale data and persists the 
 locale to the browser locale storage. 
 
+The store expects the default locale and the translations for all supported locales as argument.
+
+### format-message from the store
+It is possible to format messages without using react-mobx by calling the `formatMessage` function from the store. 
+This can be especially useful when using localized data in other stores (pass the locale store as a constructor of other stores). 
+
+### LocaleStorage
+
+The selected locale is persisted to the LocalStorage if it exists. 
 
 ## Intl Provider
 
-`./translations/MobxIntlProvider.js`: Creates the I18n provider for mobx. Note that it relies on `IntlProvider` from `react-intl`. 
+`src/MobxIntlProvider.js`: Creates the I18n provider for mobx. Note that it relies on `IntlProvider` from `react-intl`. 
+
+This component takes the locale store as prop. 
 
 ## Using locale data in other stores.
 
