@@ -2,7 +2,7 @@
 
 A library to use react-intl along with a mobx store.  
 
-[![npm version](https://badge.fury.io/js/mobx-react-intl.svg)](https://badge.fury.io/js/mobx-react-intl)
+[![npm version](https://badge.fury.io/js/mobx-react-intl.svg)](https://badge.fury.io/js/mobx-react-intl) [![CircleCI](https://circleci.com/gh/Sqooba/mobx-react-intl.svg?style=svg)](https://circleci.com/gh/Sqooba/mobx-react-intl)
 
 ## I18n mobx store
 
