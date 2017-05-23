@@ -1,5 +1,9 @@
 # Internationalization with mobx and react-intl
 
+A library to use react-intl along with a mobx store.  
+
+[![npm version](https://badge.fury.io/js/mobx-react-intl.svg)](https://badge.fury.io/js/mobx-react-intl)
+
 ## I18n mobx store
 
 `src/LocaleStore.js` is a mobx store that contains the locale data and persists the 
