@@ -1,10 +1,10 @@
 import {observable} from 'mobx';
-import formatMessage from "format-message";
+// import formatMessage from "format-message";
 
 const LOCALE = "locale";
 
 export class LocaleStore {
-    _locale = observable("");  // the locale value
+    private _locale = observable("");  // the locale value
     translations: {[key: string]: {[id: string]: string}}
 
     constructor(defaultLocale: string, translations: {[key: string]: {[id: string]: string}}) {
@@ -20,12 +20,12 @@ export class LocaleStore {
         return this._locale.get();
     }; 
 
-    set value(value: string):void {
+    set value(value: string) {
         localStorage.setItem(LOCALE, value);
         this._locale.set(value); 
     }
 
-    get messages():{[string]:string} {
+    get messages():{[key: string]:string} {
         return this.translations[this.value]
     }
 
@@ -34,6 +34,6 @@ export class LocaleStore {
             console.warn("Id not found in intl list: "+id)
             return id;  
         }
-        return formatMessage(this.messages[id], this.value); 
+        // return formatMessage(this.messages[id], this.value); 
     }
 }
