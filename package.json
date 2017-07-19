@@ -1,94 +1,122 @@
 {
   "name": "mobx-react-intl",
-  "version": "1.0.3",
+  "version": "0.0.0-development",
   "description": "Connectors between mobx-react and react-intl",
-  "main": "./lib/index.js",
-  "module": "es/index.js",
-  "jsnext:main": "es/index.js",
+  "keywords": [],
+  "main": "dist/mobx-react-intl.umd.js",
+  "module": "dist/mobx-react-intl.es5.js",
+  "typings": "dist/types/mobx-react-intl.d.ts",
   "directories": {
     "example": "examples"
   },
   "files": [
-    "dist",
-    "lib",
-    "src",
-    "es"
+    "dist"
   ],
-  "scripts": {
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:umd": "cross-env BABEL_ENV=rollup NODE_ENV=development rollup -c -o dist/mobx-react-intl.js",
-    "build:umd:min": "cross-env BABEL_ENV=rollup NODE_ENV=production rollup -c -o dist/mobx-react-intl.min.js",
-    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
-    "clean": "rimraf lib dist es coverage",
-    "test": "echo \"No test specified\" && exit 0",
-    "prepublish": "npm run clean && npm run build"
-  },
-  "keywords": [
-    "mobx",
-    "react",
-    "react-intl",
-    "mobx-react",
-    "locale",
-    "translation"
-  ],
-  "author": "Christopher Chiche",
-  "license": "ISC",
-  "dependencies": {
-    "format-message": "^5.1.2",
-    "mobx": "^3.1.9",
-    "mobx-react": "^4.1.8",
-    "react": "^15.5.4",
-    "react-intl": "^2.3.0"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.3.17",
-    "babel-core": "^6.3.26",
-    "babel-eslint": "^7.1.1",
-    "babel-plugin-check-es2015-constants": "^6.3.13",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-istanbul": "^4.0.0",
-    "babel-plugin-syntax-jsx": "^6.3.13",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.2.0",
-    "babel-plugin-transform-es2015-arrow-functions": "^6.3.13",
-    "babel-plugin-transform-es2015-block-scoped-functions": "^6.3.13",
-    "babel-plugin-transform-es2015-block-scoping": "^6.3.13",
-    "babel-plugin-transform-es2015-classes": "^6.3.13",
-    "babel-plugin-transform-es2015-computed-properties": "^6.3.13",
-    "babel-plugin-transform-es2015-destructuring": "^6.3.13",
-    "babel-plugin-transform-es2015-for-of": "^6.3.13",
-    "babel-plugin-transform-es2015-function-name": "^6.3.13",
-    "babel-plugin-transform-es2015-literals": "^6.3.13",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.3.13",
-    "babel-plugin-transform-es2015-object-super": "^6.3.13",
-    "babel-plugin-transform-es2015-parameters": "^6.3.13",
-    "babel-plugin-transform-es2015-shorthand-properties": "^6.3.13",
-    "babel-plugin-transform-es2015-spread": "^6.3.13",
-    "babel-plugin-transform-es2015-sticky-regex": "^6.3.13",
-    "babel-plugin-transform-es2015-template-literals": "^6.3.13",
-    "babel-plugin-transform-es2015-unicode-regex": "^6.3.13",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.3.13",
-    "babel-plugin-transform-react-display-name": "^6.4.0",
-    "babel-plugin-transform-react-jsx": "^6.4.0",
-    "babel-register": "^6.3.13",
-    "cross-env": "^5.0.0",
-    "rimraf": "^2.6.1",
-    "rollup": "^0.41.6",
-    "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-flow": "^1.1.1",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-replace": "^1.1.1",
-    "rollup-plugin-uglify": "^2.0.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sqooba/mobx-react-intl.git"
-  },
+  "author": "Christopher Chiche <christopher@sqooba.io>",
+  "homepage": "https://github.com/Sqooba/mobx-react-intl#readme",
   "bugs": {
     "url": "https://github.com/Sqooba/mobx-react-intl/issues"
   },
-  "homepage": "https://github.com/Sqooba/mobx-react-intl#readme"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sqooba/mobx-react-intl"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "prebuild": "rimraf dist",
+    "build": "tsc && rollup -c && rimraf compiled && typedoc --out dist/docs --target es6 --theme minimal src",
+    "start": "tsc-watch --onSuccess \"rollup -c\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
+    "deploy-docs": "ts-node tools/gh-pages-publish",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --write --no-semi",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "types": "conventional-commit-types",
+      "helpMessage": "Use \"npm run commit\" instead, we use conventional-changelog format :) (https://github.com/commitizen/cz-cli)"
+    }
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/jest": "^20.0.0",
+    "@types/node": "^8.0.0",
+    "colors": "^1.1.2",
+    "commitizen": "^2.9.6",
+    "coveralls": "^2.13.1",
+    "cross-env": "^5.0.1",
+    "cz-conventional-changelog": "^2.0.0",
+    "husky": "^0.14.0",
+    "jest": "^20.0.4",
+    "lint-staged": "^4.0.0",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^1.4.4",
+    "prompt": "^1.0.0",
+    "replace-in-file": "^2.5.0",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.42.0",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "semantic-release": "^6.3.6",
+    "ts-jest": "^20.0.6",
+    "ts-node": "^3.0.6",
+    "tsc-watch": "^1.0.5",
+    "tslint": "^5.4.3",
+    "tslint-config-prettier": "^1.1.0",
+    "tslint-config-standard": "^6.0.0",
+    "typedoc": "^0.7.1",
+    "typescript": "^2.3.4",
+    "validate-commit-msg": "^2.12.2"
+  },
+  "dependencies": {
+    "@types/react": "^15.0.38",
+    "@types/react-intl": "^2.3.1",
+    "format-message": "^5.2.0",
+    "mobx": "^3.2.1",
+    "mobx-react": "^4.2.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-intl": "^2.3.0"
+  }
 }
