@@ -1,6 +1,6 @@
 {
   "name": "mobx-react-intl",
-  "version": "0.0.0-development",
+  "version": "0.0.0-semantic-release",
   "description": "Connectors between mobx-react and react-intl",
   "keywords": [],
   "main": "dist/mobx-react-intl.umd.js",
