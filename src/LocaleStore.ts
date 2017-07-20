@@ -5,7 +5,7 @@ const LOCALE = "locale";
 
 export class LocaleStore {
     private _locale = observable("");  // the locale value
-    translations: {[key: string]: {[id: string]: string}}
+    private translations: {[key: string]: {[id: string]: string}}
 
     constructor(defaultLocale: string, translations: {[key: string]: {[id: string]: string}}) {
         this.translations = translations
@@ -16,7 +16,7 @@ export class LocaleStore {
         }
     };
 
-    get value():string {
+    get value(): string {
         return this._locale.get();
     }; 
 
@@ -25,11 +25,11 @@ export class LocaleStore {
         this._locale.set(value); 
     }
 
-    get messages():{[key: string]:string} {
+    get messages(): {[key: string]: string} {
         return this.translations[this.value]
     }
 
-    formatMessage = (id:string, values:object) => {
+    formatMessage = (id: string, values: object) => {
         if(!(id in this.messages)) {
             console.warn("Id not found in intl list: "+id)
             return id;  
