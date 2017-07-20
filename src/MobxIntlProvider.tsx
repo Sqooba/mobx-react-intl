@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { LocaleStore } from "./LocaleStore";
 import {inject, observer} from "mobx-react";
 import {IntlProvider} from "react-intl"
