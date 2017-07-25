@@ -12,12 +12,12 @@ export class LocaleStore {
         if (typeof(Storage) !== "undefined") {
             const storedLocale = localStorage.getItem(LOCALE)
             if(storedLocale && storedLocale in translations) {
-                this._locale.set(storedLocale);
+                this.value = storedLocale;
             } else {
-                this._locale.set(defaultLocale);
+                this.value = defaultLocale;
             }
         } else {
-            this._locale.set(defaultLocale);
+            this.value = defaultLocale;
         }
     };
 
