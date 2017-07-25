@@ -26,7 +26,9 @@ export class LocaleStore {
     }; 
 
     set value(value: string) {
-        localStorage.setItem(LOCALE, value);
+        if (typeof(Storage) !== "undefined") {
+          localStorage.setItem(LOCALE, value);
+        }
         this._locale.set(value); 
     }
 
