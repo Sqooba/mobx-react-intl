@@ -10,7 +10,12 @@ export class LocaleStore {
     constructor(defaultLocale: string, translations: {[key: string]: {[id: string]: string}}) {
         this.translations = translations
         if (typeof(Storage) !== "undefined") {
-            this._locale.set(localStorage.getItem(LOCALE) || defaultLocale);
+            const storedLocale = localStorage.getItem(LOCALE)
+            if(storedLocale && storedLocale in translations) {
+                this._locale.set(storedLocale);
+            } else {
+                this._locale.set(defaultLocale);
+            }
         } else {
             this._locale.set(defaultLocale);
         }

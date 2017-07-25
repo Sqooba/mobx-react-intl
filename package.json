@@ -119,7 +119,7 @@
     "react-intl": "^2.3.0"
   },
   "peerDependencies": {
-    "mobx": "^3", 
+    "mobx": "^3",
     "mobx-react": "^4",
     "react": "^15",
     "react-dom": "^15"
