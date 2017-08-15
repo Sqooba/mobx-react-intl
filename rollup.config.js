@@ -14,10 +14,12 @@ export default {
   ],
   sourceMap: true,
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: ['mobx-react', 'mobx'],
+  external: ['mobx-react', 'mobx', 'react-intl', 'react'],
   globals: {
     'mobx': 'mobx',
-    'mobx-react': 'mobxReact'
+    'mobx-react': 'mobxReact', 
+    'react-intl': 'react-Intl', 
+    'react': 'react'
   },
   plugins: [
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
