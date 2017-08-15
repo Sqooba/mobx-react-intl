@@ -80,9 +80,9 @@
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@types/react-intl/-/react-intl-2.3.1.tgz#d036dbe54f6ef29f2a150ed303a84f1693ddf905"
 
-"@types/react@^15.0.38":
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.6.1.tgz#497f7228762da4432e335957cb34fe9b40f150ae"
+"@types/react@^16.0.2":
+  version "16.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.2.tgz#0b31a73cdde6272b719e5b05a7df6d1e2654a804"
 
 "@types/shelljs@^0.7.0":
   version "0.7.4"
@@ -1529,13 +1529,9 @@ i@0.3.x:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/i/-/i-0.3.5.tgz#1d2b854158ec8169113c6cb7f6b6801e99e211d5"
 
-iconv-lite@0.4.13:
+iconv-lite@0.4.13, iconv-lite@~0.4.13:
   version "0.4.13"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
-
-iconv-lite@~0.4.13:
-  version "0.4.18"
-  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.18.tgz#23d8656b16aae6742ac29732ea8f0336a4789cf2"
 
 indent-string@^2.1.0:
   version "2.1.0"
