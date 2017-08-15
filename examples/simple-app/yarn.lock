@@ -4002,26 +4002,32 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-mobx-react-intl@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/mobx-react-intl/-/mobx-react-intl-1.2.4.tgz#3e3c2aa33a33c5c88566035c38395027b06391e2"
+mobx-react-intl@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/mobx-react-intl/-/mobx-react-intl-1.3.0.tgz#93d673a695c8d2892c5741965a489238fec8ed62"
   dependencies:
     "@types/react" "^15.0.38"
     "@types/react-intl" "^2.3.1"
     format-message "^5.2.0"
-    mobx "^3.2.1"
-    mobx-react "^4.2.2"
     react "^15.6.1"
-    react-dom "^15.6.1"
     react-intl "^2.3.0"
 
-mobx-react@^4.1.8, mobx-react@^4.2.2:
+"mobx-react-intl@file:../..":
+  version "0.0.0-semantic-release"
+  dependencies:
+    "@types/react" "^15.0.38"
+    "@types/react-intl" "^2.3.1"
+    format-message "^5.2.0"
+    react "^15.6.1"
+    react-intl "^2.3.0"
+
+mobx-react@^4.1.8:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-4.2.2.tgz#db9cc3cafefbd830d0584c1149af5aae67829201"
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
-mobx@^3.1.9, mobx@^3.2.1:
+mobx@^3.1.9:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.2.1.tgz#6aeade0120cc3f78baa57195031630a0ae8f13cf"
 
@@ -4950,7 +4956,7 @@ react-dev-utils@^3.0.2:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@^15.5.4, react-dom@^15.6.1:
+react-dom@^15.5.4:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
   dependencies:
