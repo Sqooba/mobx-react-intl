@@ -30,7 +30,8 @@
     "prebuild": "rimraf dist",
     "build": "tsc && rollup -c && rimraf compiled && typedoc --out dist/docs --target es6 --theme minimal src",
     "start": "tsc-watch --onSuccess \"rollup -c\"",
-    "test": "npm run build && npm run lint && jest --coverage --no-cache",
+    "test:examples": "(cd examples/simple-app && npm test)",
+    "test": "npm run build && npm run lint && jest --coverage --no-cache && npm run test:examples",
     "test:watch": "jest --watch",
     "deploy-docs": "ts-node tools/gh-pages-publish",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
@@ -59,6 +60,7 @@
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": ["/node_modules/", "/examples/"],
     "moduleFileExtensions": [
       "ts",
       "tsx",
