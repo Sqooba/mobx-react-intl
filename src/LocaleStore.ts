@@ -1,5 +1,5 @@
 import {observable} from 'mobx';
-const formatMessage: any = require("format-message");
+const _formatMessage: any = require("format-message");
 
 const LOCALE = "locale";
 
@@ -41,6 +41,6 @@ export class LocaleStore {
             console.warn("Id not found in intl list: "+id)
             return id;  
         }
-        return formatMessage(this.messages[id], this.value); 
+        return _formatMessage(this.messages[id], values);
     }
 }
