@@ -5,12 +5,12 @@ const LOCALE = "locale";
 
 export class LocaleStore {
     private _locale = observable("");  // the locale value
-    private translations: {[key: string]: {[id: string]: string}}
+    private translations: {[key: string]: {[id: string]: string}};
 
     constructor(defaultLocale: string, translations: {[key: string]: {[id: string]: string}}) {
-        this.translations = translations
+        this.translations = translations;
         if (typeof(Storage) !== "undefined") {
-            const storedLocale = localStorage.getItem(LOCALE)
+            const storedLocale = localStorage.getItem(LOCALE);
             if(storedLocale && storedLocale in translations) {
                 this.value = storedLocale;
             } else {
@@ -38,7 +38,7 @@ export class LocaleStore {
 
     formatMessage = (id: string, values: object) => {
         if(!(id in this.messages)) {
-            console.warn("Id not found in intl list: "+id)
+            console.warn("Id not found in intl list: "+id);
             return id;  
         }
         return formatMessage(this.messages[id], this.value); 
