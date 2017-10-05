@@ -25,7 +25,8 @@ The selected locale is persisted to the LocalStorage if it exists.
 
 `src/MobxIntlProvider.js`: Creates the I18n provider for mobx. Note that it relies on `IntlProvider` from `react-intl`. 
 
-This component takes the locale store as prop. 
+This component has the same interface as [`IntlProvider`](https://github.com/yahoo/react-intl/wiki/Components#intlprovider) 
+except that the `locale` and `messages` attributes are injected through mobx.  
 
 ## Using locale data in other stores.
 
