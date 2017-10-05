@@ -4257,8 +4257,9 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-"mobx-react-intl@file:../..":
-  version "0.0.0-semantic-release"
+mobx-react-intl@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/mobx-react-intl/-/mobx-react-intl-1.3.2.tgz#041342e014d16430aa737957160b255335f6bf27"
   dependencies:
     format-message "^5.2.0"
 
