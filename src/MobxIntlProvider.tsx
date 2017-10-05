@@ -3,10 +3,10 @@ import { LocaleStore } from "./LocaleStore";
 import {inject, observer} from "mobx-react";
 import {IntlProvider} from "react-intl"
 
-const MobxIntlProviderChild =  ({locale, children}: {locale: LocaleStore, children: any}) => {
+const MobxIntlProviderChild =  ({locale, children, ...props}: {locale: LocaleStore, children: any}) => {
     const loc = locale.value;
     const messages = locale.messages;
-    return <IntlProvider key={loc} defaultLocale="de" locale={loc} messages={messages}>
+    return <IntlProvider key={loc} locale={loc} messages={messages} {...props}>
         {children}
     </IntlProvider>
 }
