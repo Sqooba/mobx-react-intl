@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "mobx": "^3.1.9",
-    "mobx-react": "^4.1.8",
-    "mobx-react-intl": "^1.2.4",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-intl": "^2.3.0"
+    "mobx": "^3.3.0",
+    "mobx-react": "^4.3.3",
+    "mobx-react-intl": "file:../..",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-intl": "^2.4.0"
   },
   "devDependencies": {
-    "react-scripts": "1.0.3"
+    "react-scripts": "1.0.14"
   },
   "scripts": {
     "start": "react-scripts start",
