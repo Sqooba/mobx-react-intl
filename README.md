@@ -12,7 +12,7 @@ Since an example is worth a thousand words.
 
 You can see this example running on [Stackblitz](https://stackblitz.com/edit/react-kmgtt3)
 
-```
+```javascript
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Provider, inject, observer } from "mobx-react"; 
