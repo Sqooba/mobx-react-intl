@@ -63,6 +63,50 @@ const App = () => <div>
 render(<App />, document.getElementById('root'));
 ```
 
+## Another example using defineMessages
+
+If you use babel-plugin-react-intl or some other method to extract your strings from your code,
+and you want to use mobx-react-intl outside of the normal React scope, you may want to use 
+defineMessages to set up your translation strings.  This also gives you a sane fallback default
+if one of the values is not defined for a language.  You can do it like this:
+
+```javascript
+
+// in a library file somewhere that you include later
+import { defineMessages } from 'react-intl';
+export const phoneTypeMessages = defineMessages({
+  mobile: {
+    id: "phoneType.mobile",
+    defaultMessage: "Mobile"
+  },
+  home: {
+    id: "phoneType.home",
+    defaultMessage: "Home"
+  },
+  work: {
+    id: "phoneType.work",
+    defaultMessage: "Work"
+  }
+});
+
+// in one of your components
+import { phoneTypeMessages } from 'phone_types';
+
+@inject('locale') @observer
+class PhoneInput extends React.Component {
+  render() {
+    return (
+      <div>
+        <select>
+          <option value="mobile">{locale.formatDefinedMessage(phoneTypeMessages.mobile)}</option>
+          <option value="home">{locale.formatDefinedMessage(phoneTypeMessages.home)}</option>
+          <option value="work">{locale.formatDefinedMessage(phoneTypeMessages.work)}</option>
+        </select>
+      </div>
+    );
+  }
+}
+```
 
 ## I18n mobx store
 
