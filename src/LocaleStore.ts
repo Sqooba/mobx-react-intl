@@ -3,6 +3,12 @@ const _formatMessage: any = require("format-message");
 
 const LOCALE = "locale";
 
+export interface IMessageFormat {
+  id: string,
+  defaultMessage: string,
+  description?: string,
+}
+
 export class LocaleStore {
     private _locale = observable("");  // the locale value
     private translations: {[key: string]: {[id: string]: string}}
@@ -36,11 +42,19 @@ export class LocaleStore {
         return this.translations[this.value]
     }
 
-    formatMessage = (id: string, values: object) => {
+    formatMessage = (id: string, values?: object): string => {
         if(!(id in this.messages)) {
             console.warn("Id not found in intl list: "+id)
-            return id;  
+            return id;
         }
         return _formatMessage(this.messages[id], values);
+    }
+
+    formatDefinedMessage = (message: IMessageFormat, values?: object): string => {
+        if (!this.messages[message.id]) {
+            console.warn("Id not found in intl list: "+message.id)
+            return message.defaultMessage;
+        }
+        return _formatMessage(this.messages[message.id], values);
     }
 }
