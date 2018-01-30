@@ -52,7 +52,6 @@ export class LocaleStore {
 
     formatDefinedMessage = (message: IMessageFormat, values?: object): string => {
         if (!this.messages[message.id]) {
-            console.warn("Id not found in intl list: "+message.id)
             return message.defaultMessage;
         }
         return _formatMessage(this.messages[message.id], values);
