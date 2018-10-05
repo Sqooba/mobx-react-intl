@@ -4,7 +4,7 @@ const _formatMessage: any = require("format-message");
 const LOCALE = "locale";
 
 export class LocaleStore {
-    private _locale = observable("");  // the locale value
+    private _locale = observable.box("");  // the locale value
     private translations: {[key: string]: {[id: string]: string}}
 
     constructor(defaultLocale: string, translations: {[key: string]: {[id: string]: string}}) {
@@ -23,13 +23,13 @@ export class LocaleStore {
 
     get value(): string {
         return this._locale.get();
-    }; 
+    };
 
     set value(value: string) {
         if (typeof(Storage) !== "undefined") {
           localStorage.setItem(LOCALE, value);
         }
-        this._locale.set(value); 
+        this._locale.set(value);
     }
 
     get messages(): {[key: string]: string} {
@@ -39,7 +39,7 @@ export class LocaleStore {
     formatMessage = (id: string, values: object) => {
         if(!(id in this.messages)) {
             console.warn("Id not found in intl list: "+id)
-            return id;  
+            return id;
         }
         return _formatMessage(this.messages[id], values);
     }
